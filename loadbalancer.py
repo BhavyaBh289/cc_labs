@@ -174,11 +174,11 @@ def main(addr, servers, policy_class):
         logger.error(err)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Pi HTTP server')
-    parser.add_argument('-a', dest='policy', choices=POLICIES)
-    parser.add_argument('-p', dest='port', type=int, help='load balancer port', default=8080)
-    parser.add_argument('-s', dest='servers', nargs='+', type=int, help='list of servers ports')
-    args = parser.parse_args()
+    # parser = argparse.ArgumentParser(description='Pi HTTP server')
+    # parser.add_argument('-a', dest='policy', choices=POLICIES)
+    # parser.add_argument('-p', dest='port', type=int, help='load balancer port', default=8080)
+    # parser.add_argument('-s', dest='servers', nargs='+', type=int, help='list of servers ports')
+    # args = parser.parse_args()
 
     servers = [('192.168.122.184', 80)
                ,('192.168.122.5', 80)
@@ -186,6 +186,6 @@ if __name__ == '__main__':
                ]
     port=5002
     policy=1
-    main(('127.0.0.1', port), servers, POLICIES["LeastResponseTime"])
+    main(('127.0.0.1', port), servers, POLICIES["RoundRobin"])
 
 
